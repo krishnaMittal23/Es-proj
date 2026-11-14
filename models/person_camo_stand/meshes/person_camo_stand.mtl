@@ -1,0 +1,22 @@
+newmtl cloth
+Ka 0.400 0.400 0.300
+Kd 0.400 0.400 0.300
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+map_Kd camo_savanna.png
+
+newmtl skin
+Ka 0.550 0.380 0.280
+Kd 0.550 0.380 0.280
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+
+newmtl dark
+Ka 0.100 0.100 0.100
+Kd 0.100 0.100 0.100
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+

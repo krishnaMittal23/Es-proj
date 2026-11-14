@@ -1,0 +1,31 @@
+# Build and installation artifacts
+build/
+install/
+log/
+
+# Training data and results
+dataset/
+runs/
+results/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+.venv/
+venv/
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Local environment overrides
+.env.local
+env.local

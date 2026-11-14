@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="drybush_0">
+    <static>true</static>
+    <link name="link">
+      
+      <visual name="v"><geometry><mesh><uri>model://drybush_0/meshes/drybush_0.obj</uri><scale>1.0 1.0 1.0</scale></mesh></geometry></visual>
+    </link>
+    
+  </model>
+</sdf>

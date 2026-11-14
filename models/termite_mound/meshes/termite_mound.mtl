@@ -1,0 +1,8 @@
+newmtl rock
+Ka 0.500 0.350 0.250
+Kd 0.500 0.350 0.250
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+map_Kd rock.png
+

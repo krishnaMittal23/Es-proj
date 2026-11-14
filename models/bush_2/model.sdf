@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="bush_2">
+    <static>true</static>
+    <link name="link">
+      
+      <visual name="v"><geometry><mesh><uri>model://bush_2/meshes/bush_2.obj</uri><scale>1.0 1.0 1.0</scale></mesh></geometry></visual>
+    </link>
+    
+  </model>
+</sdf>

@@ -1,0 +1,8 @@
+newmtl hide
+Ka 0.450 0.400 0.400
+Kd 0.450 0.400 0.400
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+map_Kd rock.png
+

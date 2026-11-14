@@ -1,0 +1,87 @@
+{
+  "seed": 42,
+  "terrain_size": 240.0,
+  "targets": [
+    {
+      "id": 0,
+      "model": "person_camo_stand",
+      "cls": "person_camo",
+      "x": -29.42,
+      "y": 7.6,
+      "z": 4.1,
+      "camouflaged": true
+    },
+    {
+      "id": 1,
+      "model": "person_camo_crouch",
+      "cls": "person_camo",
+      "x": 25.56,
+      "y": -59.63,
+      "z": 6.37,
+      "camouflaged": true
+    },
+    {
+      "id": 2,
+      "model": "person_camo_prone",
+      "cls": "person_camo",
+      "x": 36.46,
+      "y": -3.84,
+      "z": 3.95,
+      "camouflaged": true
+    },
+    {
+      "id": 3,
+      "model": "person_plain_stand",
+      "cls": "person_plain",
+      "x": 33.25,
+      "y": -59.94,
+      "z": 6.15,
+      "camouflaged": false
+    },
+    {
+      "id": 4,
+      "model": "person_plain_prone",
+      "cls": "person_plain",
+      "x": -56.67,
+      "y": -69.92,
+      "z": 6.78,
+      "camouflaged": false
+    },
+    {
+      "id": 5,
+      "model": "tent_camo",
+      "cls": "tent_camo",
+      "x": 61.75,
+      "y": -46.57,
+      "z": 5.43,
+      "camouflaged": true
+    },
+    {
+      "id": 6,
+      "model": "jeep_camo",
+      "cls": "jeep_camo",
+      "x": 0.03,
+      "y": 35.85,
+      "z": 5.81,
+      "camouflaged": true
+    },
+    {
+      "id": 7,
+      "model": "rhino",
+      "cls": "animal",
+      "x": 19.46,
+      "y": 50.4,
+      "z": 6.66,
+      "camouflaged": false
+    },
+    {
+      "id": 8,
+      "model": "hippo",
+      "cls": "animal",
+      "x": 48.83,
+      "y": -48.24,
+      "z": 5.6,
+      "camouflaged": false
+    }
+  ]
+}

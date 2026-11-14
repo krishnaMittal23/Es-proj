@@ -1,0 +1,22 @@
+newmtl body
+Ka 0.400 0.400 0.300
+Kd 0.400 0.400 0.300
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+map_Kd camo_savanna.png
+
+newmtl dark
+Ka 0.070 0.070 0.070
+Kd 0.070 0.070 0.070
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+
+newmtl glass
+Ka 0.150 0.200 0.220
+Kd 0.150 0.200 0.220
+Ks 0.00 0.00 0.00
+Ns 10
+d 1
+
