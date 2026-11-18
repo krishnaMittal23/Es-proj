@@ -4,7 +4,7 @@
     <static>true</static>
     <link name="link">
       
-      <visual name="v"><geometry><mesh><uri>model://person_plain_stand/meshes/person_plain_stand.obj</uri><scale>1.0 1.0 1.0</scale></mesh></geometry></visual>
+      <visual name="v"><geometry><mesh><uri>model://person_plain_stand/meshes/person_plain_stand.glb</uri><scale>1.0 1.0 1.0</scale></mesh></geometry></visual>
     </link>
     <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>1</label></plugin>
   </model>

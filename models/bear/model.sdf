@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="bear">
+    <static>true</static>
+    <link name="link">
+      
+      <visual name="v"><geometry><mesh><uri>model://bear/meshes/bear.glb</uri><scale>1.0 1.0 1.0</scale></mesh></geometry></visual>
+    </link>
+    <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>3</label></plugin>
+  </model>
+</sdf>

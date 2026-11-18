@@ -14,29 +14,29 @@
       <visual name="r2"><pose>-0.25 0.25 0.04 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>0.01</length></cylinder></geometry><material><diffuse>0.2 0.2 0.2 0.8</diffuse></material></visual>
       <visual name="r3"><pose>0.25 -0.25 0.04 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>0.01</length></cylinder></geometry><material><diffuse>0.9 0.3 0.1 0.8</diffuse></material></visual>
       <visual name="r4"><pose>-0.25 -0.25 0.04 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>0.01</length></cylinder></geometry><material><diffuse>0.2 0.2 0.2 0.8</diffuse></material></visual>
-      <!-- forward camera tilted 50 deg down -->
+      <!-- forward camera tilted ~57 deg down (must match camo_ros/common.py) -->
       <sensor name="camera" type="camera">
-        <pose>0.15 0 -0.02 0 0.87 0</pose>
+        <pose>0.15 0 -0.02 0 1.0 0</pose>
         <update_rate>15</update_rate>
         <always_on>true</always_on>
         <topic>/camo/camera/image</topic>
         <camera>
-          <horizontal_fov>1.25</horizontal_fov>
-          <image><width>640</width><height>480</height><format>R8G8B8</format></image>
-          <clip><near>0.2</near><far>400</far></clip>
+          <horizontal_fov>1.1</horizontal_fov>
+          <image><width>800</width><height>600</height><format>R8G8B8</format></image>
+          <clip><near>0.2</near><far>600</far></clip>
         </camera>
       </sensor>
       <!-- ground-truth 2D boxes for labelled classes (used for dataset + scoring) -->
       <sensor name="bbox_camera" type="boundingbox_camera">
-        <pose>0.15 0 -0.02 0 0.87 0</pose>
+        <pose>0.15 0 -0.02 0 1.0 0</pose>
         <update_rate>15</update_rate>
         <always_on>true</always_on>
         <topic>/camo/camera/boxes</topic>
         <camera>
           <box_type>2d</box_type>
-          <horizontal_fov>1.25</horizontal_fov>
-          <image><width>640</width><height>480</height><format>R8G8B8</format></image>
-          <clip><near>0.2</near><far>400</far></clip>
+          <horizontal_fov>1.1</horizontal_fov>
+          <image><width>800</width><height>600</height><format>R8G8B8</format></image>
+          <clip><near>0.2</near><far>600</far></clip>
         </camera>
       </sensor>
     </link>

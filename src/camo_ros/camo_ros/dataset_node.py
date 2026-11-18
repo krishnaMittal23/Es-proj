@@ -12,7 +12,7 @@ from sensor_msgs.msg import Image
 from vision_msgs.msg import Detection2DArray
 from ros_gz_interfaces.srv import SetEntityPose
 from ros_gz_interfaces.msg import Entity
-from .common import img_to_np, WS, TerrainSampler, CAM_PITCH, IMG_W, IMG_H
+from .common import img_to_np, WS, TerrainSampler, CAM_PITCH, IMG_W, IMG_H, WORLD_NAME
 
 
 class DatasetNode(Node):
@@ -32,7 +32,7 @@ class DatasetNode(Node):
         self.img, self.boxes, self.img_stamp = None, None, 0
         self.create_subscription(Image, "/camo/camera/image", self.on_img, 1)
         self.create_subscription(Detection2DArray, "/camo/camera/boxes", self.on_box, 1)
-        self.cli = self.create_client(SetEntityPose, "/world/savanna/set_pose")
+        self.cli = self.create_client(SetEntityPose, f"/world/{WORLD_NAME}/set_pose")
         self.i, self.state, self.wait_frames, self.fut = 0, "INIT", 0, None
         self.saved_boxes = 0
         self.create_timer(0.1, self.step)
@@ -48,7 +48,7 @@ class DatasetNode(Node):
             tx, ty = random.uniform(-80, 80), random.uniform(-80, 80)
         else:
             t = random.choice(self.targets); tx, ty = t["x"], t["y"]
-        alt = random.uniform(10, 32)
+        alt = random.uniform(22, 36)
         yaw = random.uniform(-math.pi, math.pi)
         d = alt / math.tan(CAM_PITCH) * random.uniform(0.8, 1.25)
         lat = random.uniform(-4, 4)

@@ -60,7 +60,7 @@ class DetectorNode(Node):
         self.declare_parameter("mode", "yolo")
         self.declare_parameter("weights", os.path.join(WS, "runs", "camo_yolo", "weights", "best.pt"))
         self.declare_parameter("conf", 0.35)
-        self.declare_parameter("imgsz", 640)
+        self.declare_parameter("imgsz", 800)
         mode = self.get_parameter("mode").value
         self.mode = mode
         if mode == "yolo":

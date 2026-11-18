@@ -1,17 +1,22 @@
 """Shared helpers: image conversion, terrain lookup, pinhole camera ray casting."""
-import os, math
+import os, math, json
 import numpy as np
 from sensor_msgs.msg import Image
 
 CLASS_NAMES = ["person", "vehicle/tent", "animal"]   # YOLO ids 0,1,2  (gz labels 1,2,3)
 
 WS = os.environ.get("CAMO_WS", "/mnt/c/ES-proj/camo_ws")
-TERRAIN_SIZE = 240.0
-TERRAIN_H = 14.0
+_INFO_P = os.path.join(WS, "worlds", "world_info.json")
+WORLD_INFO = json.load(open(_INFO_P)) if os.path.exists(_INFO_P) else \
+    dict(world="savanna", sdf="savanna.sdf", terrain_dir="savanna_terrain", size=240.0, height=14.0)
+WORLD_NAME = WORLD_INFO["world"]
+TERRAIN_SIZE = float(WORLD_INFO["size"])
+TERRAIN_H = float(WORLD_INFO["height"])
+# must match models/camo_drone/model.sdf
 CAM_OFFSET = np.array([0.15, 0.0, -0.02])
-CAM_PITCH = 0.87           # rad, camera tilted down
-CAM_HFOV = 1.25
-IMG_W, IMG_H = 640, 480
+CAM_PITCH = 1.0            # rad, camera tilted down
+CAM_HFOV = 1.1
+IMG_W, IMG_H = 800, 600
 
 
 def img_to_np(msg: Image) -> np.ndarray:
@@ -36,9 +41,12 @@ def np_to_img(arr: np.ndarray, stamp=None, encoding="bgr8", frame="camera") -> I
 class TerrainSampler:
     def __init__(self):
         import cv2
-        p = os.path.join(WS, "models", "savanna_terrain", "textures", "heightmap.png")
-        h = cv2.imread(p, cv2.IMREAD_GRAYSCALE)
-        self.h = h.astype(np.float32) / 255.0 if h is not None else np.zeros((513, 513), np.float32)
+        d = os.path.join(WS, "models", WORLD_INFO["terrain_dir"], "textures")
+        if os.path.exists(os.path.join(d, "heightmap.npy")):
+            self.h = np.load(os.path.join(d, "heightmap.npy")).astype(np.float32)
+        else:
+            h = cv2.imread(os.path.join(d, "heightmap.png"), cv2.IMREAD_GRAYSCALE)
+            self.h = h.astype(np.float32) / 255.0 if h is not None else np.zeros((513, 513), np.float32)
         self.n = self.h.shape[0]
 
     def z(self, x, y):

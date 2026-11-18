@@ -21,9 +21,9 @@ class MissionNode(Node):
     def __init__(self):
         super().__init__("camo_mission")
         P = self.declare_parameter
-        P("altitude_agl", 20.0)       # metres above ground
+        P("altitude_agl", 28.0)       # metres above ground (clears the ~20 m canopy)
         P("speed", 6.0)
-        P("lane_spacing", 20.0)
+        P("lane_spacing", 22.0)
         P("area", 75.0)               # search square half-size (m)
         P("min_conf", 0.45)
         P("confirm_frames", 4)

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="person_ghillie_prone">
+    <static>true</static>
+    <link name="link">
+      
+      <visual name="v"><geometry><mesh><uri>model://person_ghillie_prone/meshes/person_ghillie_prone.glb</uri><scale>1.0 1.0 1.0</scale></mesh></geometry></visual>
+    </link>
+    <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>1</label></plugin>
+  </model>
+</sdf>

@@ -1,0 +1,11 @@
+{
+  "world": "forest",
+  "sdf": "forest.sdf",
+  "terrain_dir": "forest_terrain",
+  "size": 240.0,
+  "height": 18.0,
+  "base": [
+    -85.0,
+    -85.0
+  ]
+}

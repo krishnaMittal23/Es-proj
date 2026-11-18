@@ -1,5 +1,5 @@
 """One-command demo:  ros2 launch camo_ros demo.launch.py  [mode:=yolo|baseline] [gui:=true] [rviz:=false]"""
-import os
+import os, json
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
 from launch.conditions import IfCondition, UnlessCondition
@@ -7,6 +7,8 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 WS = os.environ.get("CAMO_WS", "/mnt/c/ES-proj/camo_ws")
+_info_p = os.path.join(WS, "worlds", "world_info.json")
+INFO = json.load(open(_info_p)) if os.path.exists(_info_p) else dict(world="savanna", sdf="savanna.sdf")
 
 BRIDGE = [
     "/camo/camera/image@sensor_msgs/msg/Image[gz.msgs.Image",
@@ -14,13 +16,13 @@ BRIDGE = [
     "/camo/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry",
     "/camo/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist",
     "/camo/image_annotated@sensor_msgs/msg/Image]gz.msgs.Image",
-    "/world/savanna/set_pose@ros_gz_interfaces/srv/SetEntityPose",
+    f"/world/{INFO['world']}/set_pose@ros_gz_interfaces/srv/SetEntityPose",
 ]
 
 
 def generate_launch_description():
     a = lambda n, d: DeclareLaunchArgument(n, default_value=d)
-    world = os.path.join(WS, "worlds", "savanna.sdf")
+    world = os.path.join(WS, "worlds", INFO["sdf"])
     return LaunchDescription([
         a("mode", "yolo"), a("gui", "true"), a("rviz", "false"), a("detector", "true"),
         a("autostart", "true"), a("viewer", "true"), a("conf", "0.35"),
